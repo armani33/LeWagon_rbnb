@@ -1,2 +1,10 @@
-<h1>Flats#index</h1>
-<p>Find me in app/views/flats/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <% @flats.each do |flat| %>
+    <div class="col-xs-3">
+      <div class="card">
+        <%= image_tag("flat.picture", :alt => "rss feed") %>
+      </div>
+    </div>
+  </div>
+</div>
