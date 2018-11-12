@@ -1,2 +1,23 @@
-<h1>Flats#show</h1>
-<p>Find me in app/views/flats/show.html.erb</p>
+<div class="flex-container">
+  <div class="gallery">
+    <% @flat.pictures.each do |picture_object| %>
+      <%= image_tag (picture_object.picture)%>
+    <% end %>
+  </div>
+  <div class="information">
+    <p><%= @flat.category %></p>
+    <h2><%= @flat.description %></h2>
+    <p><%= @flat.address  %></p>
+    <p><%= @flat.city %>, <%= @flat.country %></p>
+    <h3><%= @flat.price %></h3>
+    <p><%= @flat.guest_capacity %> of Guests</p>
+    <p>Hosted by <%= @flat.user %></p>
+  </div>
+  <div class="review">
+    <% @flat.reviews.each do |review_object| %>
+      <p><%= review_object.rating %></p>
+      <p><%= review_object.content %></p>
+    <% end %>
+  </div>
+  <!-- need booking form -->
+</div>
