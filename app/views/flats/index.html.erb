@@ -1,2 +1,20 @@
-<h1>Flats#index</h1>
-<p>Find me in app/views/flats/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <% @flats.each do |flat| %>
+    <div class="col-xs-3">
+      <div class="card">
+        <div class="body-card">
+          <%= image_tag("flat.picture", :alt => "flat picture") %>
+        </div>
+        <div class="footer-card">
+          <h1><%= flat.description %></h1>
+          <p><%= flat.price %></p>
+          <ul>
+            <li>average of the ratings : <%= @restaurant.average_rating %></li>
+            <li>reviews.length.to_i</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
