@@ -7,4 +7,8 @@ class Flat < ApplicationRecord
   def average_rating
     return reviews.pluck(:rating).sum / reviews.length.to_i
   end
+
+  def number_of_review
+    reviews.length.to_i
+  end
 end
