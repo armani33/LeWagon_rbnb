@@ -5,19 +5,22 @@
     <% end %>
   </div>
   <div class="information">
-    <p><%= @flat.category %></p>
-    <h2><%= @flat.description %></h2>
+    <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %></div>
+    <% end %>
+    <h2><%= @flat.description %></h2><span>Hosted by  <%= image_tag(@flat.user.avatar) %><%= @flat.user.first_name %> <%= @flat.user.last_name %> </span>
     <p><%= @flat.address  %></p>
     <p><%= @flat.city %>, <%= @flat.country %></p>
-    <h3><%= @flat.price %></h3>
-    <p><%= @flat.guest_capacity %> of Guests</p>
-    <p>Hosted by <%= @flat.user %></p>
+    <p><%= @flat.category %></p>
+    <h3>$<%= @flat.price %>/night</h3>
+    <p><%= @flat.guest_capacity %> Guests</p>
   </div>
   <div class="review">
-    <% @flat.reviews.each do |review_object| %>
-      <p><%= review_object.rating %></p>
-      <p><%= review_object.content %></p>
-    <% end %>
+    <p>Average Rating: <%= @flat.average_rating %></p>
+    <p>See all reviews... NEED ROUTE/CONTROLLER/VIEW FOR 'flats/:id/reviews'</p>
+    <!-- need to link to 'flats/:id/reviews' page -->
   </div>
-  <!-- need booking form -->
+  <div class="book">
+    <%= link_to "Book now!", new_flat_booking_path(@flat), class: "btn btn-success btn-lg" %>
+  </div>
 </div>

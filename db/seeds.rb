@@ -25,6 +25,7 @@ puts 'creating new database'
 
   3.times do
   category = ["full appartement", "full house", "room"].sample(1)[0]
+  capacity = (1..10).to_a.sample
   description = ["Nice place", "Charming place", "Historic place", "Well situation place", "Friendly place", "All featured place"].sample(1)[0]
   price =  (20..200).to_a.sample(1)[0]
 
@@ -33,7 +34,7 @@ puts 'creating new database'
       postal_code:Faker::Address.zip_code,
       city: Faker::Address.city,
       country: Faker::Address.country,
-      guest_capacity: category,
+      guest_capacity: capacity,
       price: price,
       category: category,
       description: description
