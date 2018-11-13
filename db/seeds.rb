@@ -51,15 +51,14 @@ puts 'creating new database'
         review.flat = flat
         review.save!
         end
-
-      20.times do
-        # accepted = ["true", "false"].sample(1)[0]
-        booking = Booking.new (
-        )
-        booking.user = user
-        booking.flat = flat
-        booking.save!
-      end # end booking
+      # 20.times do
+      #   # accepted = ["true", "false"].sample(1)[0]
+      #   booking = Booking.new (
+      #   )
+      #   booking.user = user
+      #   booking.flat = flat
+      #   booking.save!
+      # end # end booking
 end #end flat
 end # end user
 puts 'end creation database'
