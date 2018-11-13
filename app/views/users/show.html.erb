@@ -6,7 +6,7 @@
     <div class="col-lg-9 col-md-8 col-sm-12">
       <h2> Hello, my name is <%=@user.first_name%>!</h2>
       <p><strong>Member since <%= @user.created_at %></strong></p>
-      <a href=""> Update profile </a>
+      <%= link_to 'Update profile', edit_user_registration_path(@user) %>
   </div>
   </div>
   <div class="row">
