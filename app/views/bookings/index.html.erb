@@ -1,0 +1,6 @@
+<% @bookings.each do |booking_object| %>
+<p><%= booking_object.start_date %></p>
+<p><%= booking_object.end_date %></p>
+<p><%= link_to "Cancel booking", user_booking_path(@user, booking_object), method: :delete %></p>
+<% end %>
+<p><%= link_to "Return to profile", user_path(@user) %></p>

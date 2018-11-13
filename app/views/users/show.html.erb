@@ -16,6 +16,11 @@
     <p><strong>Last name:</strong> <%=@user.last_name%></p>
     <p><strong>Email:</strong> <%=@user.email%></p>
   </div>
+  <div class="row">
+    <div class="col-lg-3 col-md-4 hide-sm">
+      <%= link_to "View bookings", user_bookings_path(@user) %>
+    </div>
+  </div>
   </div>
 
 

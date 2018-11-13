@@ -4,6 +4,11 @@ class BookingsController < ApplicationController
     find_flat
   end
 
+  def index
+    @user = current_user
+    @bookings = @user.bookings
+  end
+
   def create
     @booking = Booking.new(booking_params)
     find_flat
@@ -18,6 +23,13 @@ class BookingsController < ApplicationController
   end
 
   def destroy
+    find_booking
+    if @booking.accepted? == false || Time.now < @booking.start_date - 7.days
+      @booking.destroy
+      redirect_to user_bookings_path(params[:user_id], params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   private
@@ -28,5 +40,13 @@ class BookingsController < ApplicationController
 
   def find_flat
     @flat = Flat.find(params[:flat_id])
+  end
+
+  def find_booking
+    @booking = Booking.find(params[:id])
+  end
+
+  def set_current_user
+    @user = current_user
   end
 end
