@@ -1,13 +1,14 @@
 <div class="home-container">
-  <div class="sign-in_button">
+  <%= image_tag("lionkingflat", alt: "logo", class: "logo") %>
+  <div class="sign-in-button">
     <%= link_to("Sign up", new_user_registration_path) %>
   </div>
-  <div class="log-in">
+  <div class="log-in-button">
     <%= link_to("Log in", new_user_session_path) %>
   </div>
   <div class="flex_search_form">
     <h1>Book unique homes and experiences.</h1>
-    <%= form_tag search_path, method: "get" do %>
+    <%= form_tag search_path, method: "get", :class => 'comment_form' do %>
       <%= label_tag(:q, "WHERE") %>
       <%= text_field_tag(:q, "Anywhere") %>
       <div class="date_search_form">
@@ -15,10 +16,23 @@
         <%= date_field(:booking, :start_date) %>
         <%= label_tag(:q, "CHECK OUT:") %>
         <%= date_field(:booking, :end_date) %>
-        <%= submit_tag("Search") %>
       </div>
       <%= label_tag(:q, "GUESTS") %>
       <%= number_field(:flat, :guest_capacity, in: 1..20, step: 1) %>
+      <%= submit_tag("Search") %>
     <% end %>
   </div>
-</div>
+  <div class="footer">
+    <div class="footer-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+    <div class="footer-pages">
+      <%= link_to("About", about_path, class: 'about-button') %>
+      <%= link_to("Contact", contact_path, class: 'contact-button') %>
+    </div>
+  </div>
+
