@@ -15,6 +15,7 @@ class FlatsController < ApplicationController
   end
 
   def create
+    raise
     @flat = Flat.new(flat_params)
     @flat.user = current_user
     if @flat.save
@@ -37,6 +38,6 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:start_date, :end_date, :flat_id)
+    params.require(:flat).permit(:address, :postal_code, :city, :country, :guest_capacity, :price, :category, :description, :user_id)
   end
 end
