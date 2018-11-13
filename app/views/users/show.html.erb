@@ -2,18 +2,24 @@
   <div class="row">
     <div class="col-lg-3 col-md-4 hide-sm ">
       <img src="<%= @user.avatar %>" class="avatar-large" alt="Avatar" />
-  <div class="row">
+    </div>
     <div class="col-lg-9 col-md-8 col-sm-12">
-      <h2> Hello, my name is <%=@user.first_name%> </h2>
-    </div>
+      <h2> Hello, my name is <%=@user.first_name%>!</h2>
+      <p><strong>Member since <%= @user.created_at %></strong></p>
+      <a href=""> Update profile </a>
   </div>
-    <p> Member since <%= @user.created_at %></p>
-
-    <p><%= @user.email%></p>
-
-
-    </div>
   </div>
+  <div class="row">
+    <div class="col-lg-3 col-md-4 hide-sm ">
+      <h3>User informations: </h3>
+    <p><strong>First name:</strong> <%=@user.first_name%></p>
+    <p><strong>Last name:</strong> <%=@user.last_name%></p>
+    <p><strong>Email:</strong> <%=@user.email%></p>
+  </div>
+  </div>
+
+
+
 </div>
 
 
