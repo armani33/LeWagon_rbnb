@@ -1,0 +1,8 @@
+<%= simple_form_for [@booking], url: flat_bookings_path(params[:flat_id]), method: :post do |f| %>
+  <%= f.label :start_date, "Check in"  %>
+  <%= f.date_field :start_date %>
+  <%= f.label :end_date, "Check out"  %>
+  <%= f.date_field :end_date %>
+<!--   <%= date_field(:booking, :start_date) %> -->
+  <%= f.button :submit %>
+<% end %>
