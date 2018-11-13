@@ -15,7 +15,6 @@ class FlatsController < ApplicationController
   end
 
   def create
-    raise
     @flat = Flat.new(flat_params)
     @flat.user = current_user
     if @flat.save
