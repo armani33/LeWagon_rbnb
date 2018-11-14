@@ -9,8 +9,8 @@
   <div class="flex_search_form">
     <h1>Book unique homes and experiences.</h1>
     <%= form_tag search_path, method: "get", :class => 'comment_form' do %>
-      <%= label_tag(:q, "WHERE") %>
-      <%= text_field_tag(:q, "Anywhere") %>
+      <%= label_tag(:city, "WHERE") %>
+      <%= text_field_tag(:city, "Anywhere") %>
       <div class="date_search_form">
         <%= label_tag(:q, "CHECK IN:") %>
         <%= date_field(:booking, :start_date) %>
