@@ -1,0 +1,10 @@
+<% @flats.each do |flat_object| %>
+  <%= link_to flat_path(flat_object) do %>
+    <h2><%= flat_object.description %></h2>
+  <% end %>
+
+  <% flat_object.bookings.each do |booking| %>
+    <p><%= booking.start_date %> to <%= booking.end_date %></p>
+    <p>Accepted: <%= booking.accepted %></p>
+  <% end %>
+<% end %>
