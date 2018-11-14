@@ -15,6 +15,14 @@ class FlatsController < ApplicationController
   end
 
   def create
+    @flat = Flat.new(flat_params)
+    @flat.user = current_user
+    if @flat.save
+      flash[:success] = "Flat added in your dashboard."
+      redirect_to flat_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -24,5 +32,11 @@ class FlatsController < ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def flat_params
+    params.require(:flat).permit(:address, :postal_code, :city, :country, :guest_capacity, :price, :category, :description, :user_id)
   end
 end
