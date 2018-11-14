@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   get '/contact', to: 'pages#contact', as: 'contact'
   get 'flats/search', to: 'flats#search', as: 'search'
   get 'flats/flats_user_index', to: "flats#flats_user_index", as: 'flats_user_index'
+  get 'users/dashboard', to: 'dashboard#show', as: 'dashboard'
   resources :flats do
     resources :bookings, only: [:new, :create, :destroy]
   end
-  resources :users, only: [:show] do
-    resources :bookings, only: [:index, :destroy]
-  end
+  resources :bookings, only: [:index, :destroy]
+
 end

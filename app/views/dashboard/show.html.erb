@@ -1,7 +1,7 @@
 <div class= "profil-contrainer">
   <div class="row">
     <div class="col-lg-3 col-md-4 hide-sm ">
-      <img src="<%= @user.avatar %>" class="avatar-large" alt="Avatar" />
+      <%# image_tag(@user.avatar, alt: "profile avatar", class: "avatar-large") %>
     </div>
     <div class="col-lg-9 col-md-8 col-sm-12">
       <h2> Hello, my name is <%=@user.first_name%>!</h2>
@@ -18,7 +18,7 @@
   </div>
   <div class="row">
     <div class="col-lg-3 col-md-4 hide-sm">
-      <%= link_to "View bookings", user_bookings_path(@user) %>
+      <%= link_to "View bookings", bookings_path %>
       <br>
       <%= link_to "Want to rent your place? Add a flat!", new_flat_path(@user) %>
       <br>
@@ -26,9 +26,6 @@
     </div>
   </div>
   </div>
-
-
-
 </div>
 
 
