@@ -31,7 +31,6 @@ class FlatsController < ApplicationController
   def create
     @flat = Flat.new(flat_params)
     @flat.user = current_user
-    @flat.review = "no"
     if @flat.save
       flash[:success] = "Flat added in your dashboard."
       redirect_to flat_path(@flat)
