@@ -30,12 +30,12 @@ class BookingsController < ApplicationController
 
   def destroy
     find_booking
-    if @booking.accepted? == false || Time.now < @booking.start_date - 7.days
-      @booking.destroy
-      redirect_to user_bookings_path(params[:user_id], params[:id])
-    else
-      redirect_to root_path
-    end
+    # if @booking.accepted? == false || Time.now < @booking.start_date - 7.days
+    @booking.destroy
+    redirect_to flats_path
+    # else
+    #   redirect_to root_path
+    # end
   end
 
   private
