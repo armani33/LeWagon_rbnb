@@ -9,6 +9,11 @@ class FlatsController < ApplicationController
     @flats = @user.flats
   end
 
+  def owner_flat_bookings
+    @user = current_user
+    @flat = Flat.find(params[:flat_id])
+  end
+
   def search
     @flats = Flat.where("city = ? and guest_capacity >= ?", params[:city], params[:flat][:guest_capacity])
     # format: @songs = Song.where({ title: params[:query] })
@@ -26,6 +31,7 @@ class FlatsController < ApplicationController
   def create
     @flat = Flat.new(flat_params)
     @flat.user = current_user
+    @flat.review = "no"
     if @flat.save
       flash[:success] = "Flat added in your dashboard."
       redirect_to flat_path(@flat)

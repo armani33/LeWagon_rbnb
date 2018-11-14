@@ -22,6 +22,12 @@ class BookingsController < ApplicationController
     end
   end
 
+  def update
+    @booking = Booking.find(params[:id])
+    @booking.update(booking_params)
+    redirect_to owner_flat_bookings_path(current_user, @booking.flat)
+  end
+
   def destroy
     find_booking
     if @booking.accepted? == false || Time.now < @booking.start_date - 7.days
@@ -35,7 +41,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :flat_id)
+    params.require(:booking).permit(:start_date, :end_date, :flat_id, :accepted)
   end
 
   def find_flat
