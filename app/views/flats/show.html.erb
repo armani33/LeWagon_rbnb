@@ -8,7 +8,7 @@
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
-    <h2><%= @flat.description %></h2><span>Hosted by  <%= image_tag(@flat.user.avatar) %><%= @flat.user.first_name %> <%= @flat.user.last_name %> </span>
+    <h2><%= @flat.description %></h2><span>Hosted by <%= @flat.user.first_name %> <%= @flat.user.last_name %> </span>
     <p><%= @flat.address  %></p>
     <p><%= @flat.city %>, <%= @flat.country %></p>
     <p><%= @flat.category %></p>

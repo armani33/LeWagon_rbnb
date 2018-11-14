@@ -6,7 +6,11 @@ class Flat < ApplicationRecord
   belongs_to :user # user as host
 
   def average_rating
-    return reviews.pluck(:rating).sum / reviews.length.to_i
+    if number_of_review == 0
+      return "No reviews yet"
+    else
+      return reviews.pluck(:rating).sum / reviews.length.to_i
+    end
   end
 
   def number_of_review
