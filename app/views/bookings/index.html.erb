@@ -9,5 +9,5 @@
 <p><%= booking_object.start_date %> to <span><%= booking_object.end_date %></span></p>
 <p><%= link_to "Cancel booking", user_booking_path(@user, booking_object), method: :delete %></p>
   <% end %>
-<p><%= link_to "Return to profile", user_path(@user) %></p>
+<p><%= link_to "Return to profile", dashboard_path %></p>
 </div>
