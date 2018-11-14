@@ -1,7 +1,8 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <% @flats.each do |flat| %>
-    <div class="col-xs-6 col-md-2 col-md-offset-1">
+    <div class="col-xs-12 col-sm-6 col-md-3 ">
+      <%= link_to flat_path(flat) do %>
       <div class="card">
         <div class="body-card">
           <%# image_tag(flat.pictures.first, :alt => "flat picture") %>
@@ -15,6 +16,7 @@
           </ul>
         </div>
       </div>
+      <% end %>
     </div>
     <% end %>
   </div>
