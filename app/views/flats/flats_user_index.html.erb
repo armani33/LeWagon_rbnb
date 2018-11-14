@@ -1,6 +1,22 @@
-<h2>print list of user flats</h2>
-<% @flats.each do |flat| %>
-<%= flat.address %>
-<br>
-<%= flat.user_id %>
-<% end %>
+<h2>List of your properties !! </h2>
+<div class="container">
+  <div class="row">
+    <% @flats.each do |flat| %>
+    <div class="col-xs-6 col-md-2 col-md-offset-1">
+      <div class="card">
+        <div class="body-card">
+          <%# image_tag(flat.pictures.first, :alt => "flat picture") %>
+        </div>
+        <div class="footer-card">
+          <h1><%= flat.description %></h1>
+          <p><%= flat.price %>$</p>
+          <ul>
+            <li>average of the ratings : <%= flat.average_rating %> stars</li>
+            <li><%= flat.reviews.length.to_i %> reviews </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+</div>
