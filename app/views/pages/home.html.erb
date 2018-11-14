@@ -1,5 +1,7 @@
 <div class="home-container">
-  <%= image_tag("lionkingflat", alt: "logo", class: "logo") %>
+  <%= link_to flats_path do %>
+    <%= image_tag("lionkingflat", alt: "logo", class: "logo") %>
+  <% end %>
   <div class="sign-in-button">
     <%= link_to("Sign up", new_user_registration_path) %>
   </div>
