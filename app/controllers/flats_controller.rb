@@ -5,7 +5,7 @@ class FlatsController < ApplicationController
   end
 
   def search
-    @flats = Flat.where("city = ? and guest_capacity >= ?", params[:city], params[:flat][:guest_capacity] )
+    @flats = Flat.where("city = ? and guest_capacity >= ?", params[:city], params[:flat][:guest_capacity])
     # format: @songs = Song.where({ title: params[:query] })
   end
 
