@@ -15,6 +15,7 @@ class FlatsController < ApplicationController
 
   def new
     @flat = Flat.new
+    @user = current_user
   end
 
   def create
@@ -22,7 +23,7 @@ class FlatsController < ApplicationController
     @flat.user = current_user
     if @flat.save
       flash[:success] = "Flat added in your dashboard."
-      redirect_to flat_path
+      redirect_to flat_path(@flat)
     else
       render :new
     end
