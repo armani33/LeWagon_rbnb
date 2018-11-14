@@ -17,11 +17,16 @@
   left: 40px;
   width: 50px;
 }
-.sign-in-button{
+.sign-up-button{
   position: absolute;
   top: 30px;
   right: 30px;
   color: white;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
   text-decoration: none;
 }
 .log-in-button{
@@ -29,6 +34,11 @@
   top: 30px;
   right: 130px;
   color: white;
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  padding: 5px;
+  border-radius: 5px;
   text-decoration: none;
 }
 .flex_search_form{

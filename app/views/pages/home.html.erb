@@ -1,13 +1,9 @@
 <div class="home-container">
-  <%= link_to flats_path do %>
+  <%= link_to root_path do %>
     <%= image_tag("lionkingflat", alt: "logo", class: "logo") %>
   <% end %>
-  <div class="sign-in-button">
-    <%= link_to("Sign up", new_user_registration_path) %>
-  </div>
-  <div class="log-in-button">
-    <%= link_to("Log in", new_user_session_path) %>
-  </div>
+  <%= link_to("Sign up", new_user_registration_path, class: "sign-up-button") %>
+  <%= link_to("Log in", new_user_session_path, class: "log-in-button") %>
   <div class="flex_search_form">
     <h1>Book unique homes and experiences.</h1>
     <%= form_tag search_path, method: "get", :class => 'comment_form' do %>
