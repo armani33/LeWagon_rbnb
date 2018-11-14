@@ -3,10 +3,10 @@ class FlatsController < ApplicationController
     @flats = Flat.all
   end
 
-def flats_user_index
+  def flats_user_index
     @user = current_user
     @flats = @user.flats
-end
+  end
 
   def search
   end
@@ -22,9 +22,10 @@ end
   def create
     @flat = Flat.new(flat_params)
     @flat.user = current_user
+    @flat.review = "no"
     if @flat.save
       flash[:success] = "Flat added in your dashboard."
-      redirect_to flat_path
+      redirect_to flat_path(@flat)
     else
       render :new
     end
