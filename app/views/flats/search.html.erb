@@ -1,0 +1,9 @@
+<%@flats.each do |flat_object| %>
+  <% flat_object.pictures.each do |picture_object| %>
+    <%= image_tag (picture_object.picture)%>
+  <% end %>
+<h2> <%= link_to flat_object.description, flat_path(flat_object) %></h2>
+<p><%= flat_object.address %></p>
+<p><%= flat_object.city %></p>
+<p><%= flat_object.guest_capacity %></p>
+<% end %>
