@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about', as: 'about'
   get '/contact', to: 'pages#contact', as: 'contact'
   get 'flats/search', to: 'flats#search', as: 'search'
+  get 'flats/flats_user_index', to: "flats#flats_user_index", as: 'flats_user_index'
   resources :flats do
     resources :bookings, only: [:new, :create, :destroy]
   end

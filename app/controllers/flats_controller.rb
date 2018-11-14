@@ -3,6 +3,11 @@ class FlatsController < ApplicationController
     @flats = Flat.all
   end
 
+def flats_user_index
+    @user = current_user
+    @flats = @user.flats
+end
+
   def search
   end
 
