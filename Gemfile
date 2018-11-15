@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.4.4'
 
+gem 'carrierwave', '~> 1.2' # Gem for files uploads
 gem 'cloudinary' # Gem for cloudinary
 gem 'dotenv-rails', groups: [:development, :test] # Gem for data protections
 gem 'figaro'

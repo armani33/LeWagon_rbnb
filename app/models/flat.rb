@@ -4,7 +4,7 @@ class Flat < ApplicationRecord
   has_many :pictures
   has_many :users, through: :bookings # users as guest
   belongs_to :user # user as host
-
+  mount_uploader :photo, PhotoUploader
   def average_rating
     if number_of_review == 0
       return "No reviews yet"
