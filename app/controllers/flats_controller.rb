@@ -3,9 +3,10 @@ class FlatsController < ApplicationController
   def index
 
     @flats = Flat.where.not(latitude: nil, longitude: nil)
+
     arrival_date = params[:start_date]
     leaving_date = params[:end_date]
-    
+
 
     if params[:q].present?
       @flats = @flats.search_by_postalcode_city_and_country(params[:q])
@@ -20,7 +21,6 @@ class FlatsController < ApplicationController
       @flats = @flats.select do |flat|
         flat.availability?(arrival_date, leaving_date)
       end
-      
     end
 
     @markers = @flats.map do |flat|
