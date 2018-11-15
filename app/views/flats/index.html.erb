@@ -31,7 +31,7 @@
       <div class="card-index">
    <%= link_to flat_path(flat) do %>
           <div class="card-body-index">
-            <%# image_tag(flat.pictures.first, :alt => "flat picture") %>
+            <%= cl_image_tag flat.photo, height: 300, width: 400, crop: :fill %>
           </div>
           <div class="card-footer-index">
             <h1><%= flat.description %></h1>
