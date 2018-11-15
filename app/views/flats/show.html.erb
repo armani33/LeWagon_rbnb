@@ -20,6 +20,11 @@
     <p>See all reviews... NEED ROUTE/CONTROLLER/VIEW FOR 'flats/:id/reviews'</p>
     <!-- need to link to 'flats/:id/reviews' page -->
   </div>
+  <div class="calendar">
+    <%= month_calendar do |date| %>
+      <%= date %>
+    <% end %>
+  </div>
   <div class="book">
     <%= link_to "Book now!", new_flat_booking_path(@flat), class: "btn btn-success btn-lg" %>
   </div>
