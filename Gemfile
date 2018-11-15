@@ -12,6 +12,7 @@ gem 'pg', '~> 0.21'
 gem 'puma'
 gem 'rails', '5.2.1'
 gem 'redis'
+gem "simple_calendar", "~> 2.0"
 
 gem 'rest-client', '>= 2.0.2'
 
@@ -22,6 +23,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'pg_search'
 gem 'geocoder'
 
 group :development do
