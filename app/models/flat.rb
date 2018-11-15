@@ -6,6 +6,10 @@ class Flat < ApplicationRecord
   has_many :pictures
   has_many :users, through: :bookings # users as guest
   belongs_to :user # user as host
+  
+  mount_uploader :photo, PhotoUploader
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   pg_search_scope :search_by_postalcode_city_and_country,
     against: [:postal_code, :city, :country],
@@ -21,7 +25,6 @@ class Flat < ApplicationRecord
     arrival_date = ar_date.to_date
     leaving_date = leav_date.to_date
 
-
     sql_query = <<-SQL
       start_date < :arrival_date AND end_date > :leaving_date
       OR start_date BETWEEN :arrival_date AND :leaving_date
@@ -31,13 +34,8 @@ class Flat < ApplicationRecord
     result = self.bookings.where(sql_query, arrival_date: arrival_date, leaving_date: leaving_date)
     return result.empty?
   end
-  # def check_date_availability(flats, arrival_date, leaving_date)
-  #   flats.select do |flat|
-  #     flat.bookings.all? do |booking|
-  #       booking.where('start_date < ? AND end_date > ?', arrival_date, leaving_date)
-  #     end
-  #   end
-  # end
+
+
   def average_rating
     if number_of_review == 0
       return "No reviews yet"

@@ -1,3 +1,14 @@
+<div class="map">
+  <h4>Adventures around the globe await!</h4>
+  <%= render 'shared/map' %>
+</div>
+<!-- <div
+id="map"
+style="width: 600px;
+height: 400px;"
+data-markers="<%= @markers.to_json %>">
+</div> -->
+
 <div class="banner-flats-index">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 ">
@@ -24,27 +35,25 @@
     </div>
   </div>
 </div>
+
 <div class="container">
   <div class="row">
-<% @flats.each do |flat| %>
-    <div class="col-xs-12 col-sm-6 col-md-3">
-      <div class="card-index">
-   <%= link_to flat_path(flat) do %>
-          <div class="card-body-index">
-            <%# image_tag(flat.pictures.first, :alt => "flat picture") %>
-          </div>
-          <div class="card-footer-index">
-            <h1><%= flat.description %></h1>
-            <p><strong>Price: </strong><%= flat.price %>CAD</p>
-            <p><strong>Ratings :</strong> <%= flat.average_rating%></p>
-            <p><strong>Reviews:</strong> <%= flat.number_of_review%></p>
-          </div>
-
-
-    </div>
+    <% @flats.each do |flat| %>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="card-index">
+          <%= link_to flat_path(flat) do %>
+            <div class="card-body-index">
+              <%= cl_image_tag flat.photo, height: 300, width: 400, crop: :fill %>
+            </div>
+            <div class="card-footer-index">
+              <h1><%= flat.description %></h1>
+              <p><strong>Price: </strong><%= flat.price %>CAD</p>
+              <p><strong>Ratings :</strong> <%= flat.average_rating%></p>
+              <p><strong>Reviews:</strong> <%= flat.number_of_review%></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-    </div>
-  <% end %>
-</div>
-
+  </div>
 </div>

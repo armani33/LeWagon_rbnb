@@ -6,7 +6,7 @@
       <%= link_to flat_path(flat) do %>
       <div class="card">
         <div class="body-card">
-          <%# image_tag(flat.pictures.first, :alt => "flat picture") %>
+          <%= cl_image_tag flat.photo, height: 300, width: 400, crop: :fill %>
         </div>
         <div class="footer-card">
           <h1><%= flat.description %></h1>

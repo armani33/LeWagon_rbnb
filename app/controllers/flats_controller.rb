@@ -2,13 +2,10 @@ class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :search, :show]
   def index
 
-    @flats = Flat.all
+    @flats = Flat.where.not(latitude: nil, longitude: nil)
     arrival_date = params[:start_date]
     leaving_date = params[:end_date]
-
-    if params[:q] == "" && params[:guest] == "" && params[:start_date] == "" && params[:end_date] == ""
-      @flats = Flat.all
-    end
+    
 
     if params[:q].present?
       @flats = @flats.search_by_postalcode_city_and_country(params[:q])
@@ -23,6 +20,15 @@ class FlatsController < ApplicationController
       @flats = @flats.select do |flat|
         flat.availability?(arrival_date, leaving_date)
       end
+      
+    end
+
+    @markers = @flats.map do |flat|
+      {
+        lng: flat.longitude,
+        lat: flat.latitude,
+        infoWindow: { content: render_to_string(partial: "/flats/map_window", locals: { flat: flat }) }
+      }
     end
   end
 
@@ -43,6 +49,15 @@ class FlatsController < ApplicationController
 
   def show
     @flat = Flat.find(params[:id])
+    @flats = []
+    @flats << @flat
+    @markers = @flats.map do |flat|
+      {
+        lng: flat.longitude,
+        lat: flat.latitude,
+        infoWindow: { content: render_to_string(partial: "/flats/map_window", locals: { flat: flat }) }
+      }
+    end
   end
 
   def new
@@ -73,6 +88,6 @@ class FlatsController < ApplicationController
   private
 
   def flat_params
-    params.require(:flat).permit(:address, :postal_code, :city, :country, :guest_capacity, :price, :category, :description, :user_id)
+    params.require(:flat).permit(:address, :postal_code, :city, :country, :guest_capacity, :price, :category, :description, :user_id, :photo)
   end
 end
