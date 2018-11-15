@@ -1,7 +1,15 @@
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :search, :show]
   def index
-    @flats = Flat.all
+    @flats = Flat.where.not(latitude: nil, longitude: nil)
+
+    @markers = @flats.map do |flat|
+      {
+        lng: flat.longitude,
+        lat: flat.latitude,
+        infoWindow: { content: render_to_string(partial: "/flats/map_window", locals: { flat: flat }) }
+      }
+    end
   end
 
   def flats_user_index
@@ -21,6 +29,15 @@ class FlatsController < ApplicationController
 
   def show
     @flat = Flat.find(params[:id])
+    @flats = []
+    @flats << @flat
+    @markers = @flats.map do |flat|
+      {
+        lng: flat.longitude,
+        lat: flat.latitude,
+        infoWindow: { content: render_to_string(partial: "/flats/map_window", locals: { flat: flat }) }
+      }
+    end
   end
 
   def new

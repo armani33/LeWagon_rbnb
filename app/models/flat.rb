@@ -5,6 +5,8 @@ class Flat < ApplicationRecord
   has_many :users, through: :bookings # users as guest
   belongs_to :user # user as host
   mount_uploader :photo, PhotoUploader
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
   def average_rating
     if number_of_review == 0
       return "No reviews yet"
