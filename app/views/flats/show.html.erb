@@ -1,4 +1,5 @@
 <div class="flex-container">
+  <%= render 'shared/map' %>
   <div class="gallery">
     <% @flat.pictures.each do |picture_object| %>
       <%= image_tag (picture_object.picture)%>
