@@ -10,7 +10,8 @@
         </div>
         <div class="footer-card">
           <h1><%= flat.description %></h1>
-          <p><%= flat.price %></p>
+          <p><%= flat.price %>$</p>
+          <p><%= link_to "View and Approve Bookings", owner_flat_bookings_path(current_user, flat) %></p>
           <ul>
             <li>average of the ratings : <%= flat.average_rating %></li>
             <li><%= flat.number_of_review %> Reviews</li>

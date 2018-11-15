@@ -9,6 +9,11 @@ class FlatsController < ApplicationController
     @flats = @user.flats
   end
 
+  def owner_flat_bookings
+    @user = current_user
+    @flat = Flat.find(params[:flat_id])
+  end
+
   def search
     @flats = Flat.where("city = ? and guest_capacity >= ?", params[:city], params[:flat][:guest_capacity])
     # format: @songs = Song.where({ title: params[:query] })
