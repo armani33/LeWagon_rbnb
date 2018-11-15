@@ -4,6 +4,7 @@ class Flat < ApplicationRecord
   has_many :pictures
   has_many :users, through: :bookings # users as guest
   belongs_to :user # user as host
+  mount_uploader :photo, PhotoUploader
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
   def average_rating
