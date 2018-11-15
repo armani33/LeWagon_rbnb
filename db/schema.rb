@@ -9,9 +9,12 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-ActiveRecord::Schema.define(version: 2018_11_15_170933) do
+
+ActiveRecord::Schema.define(version: 2018_11_15_210430) do
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
   create_table "bookings", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "flat_id"
