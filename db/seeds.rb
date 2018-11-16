@@ -8,10 +8,9 @@ User.destroy_all
 
 
 
+
+
 puts 'creating new database'
-
-
-
 # 10.times do
 
 #   user = User.new(

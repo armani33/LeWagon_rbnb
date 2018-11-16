@@ -4,3 +4,23 @@
   justify-content: center;
   text-align: center;
 }
+.flex-container{
+  display:flex;
+  flex-direction: column;
+background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.6)), url('https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/1-london-england-skyline-panoramic-michael-tompsett.jpg');
+}
+.flex-container h2{
+  margin-top: 60px;
+  text-align: center;
+  color: black;
+  font-family: 'Nunito', sans-serif;
+  font-size: 23px;
+}
+
+.first-container{
+  display:flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-top: 30px;
+  padding: 35px;
+}

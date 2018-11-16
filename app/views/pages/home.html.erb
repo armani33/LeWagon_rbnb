@@ -1,6 +1,6 @@
 <div class="home-container">
   <%= link_to root_path do %>
-    <%= image_tag("lionkingflat", alt: "logo", class: "logo") %>
+    <%= image_tag("lionkingflat_orange", alt: "logo", class: "logo") %>
   <% end %>
   <%= link_to("Sign up", new_user_registration_path, class: "sign-up-button") %>
   <%= link_to("Log in", new_user_session_path, class: "log-in-button") %>
@@ -8,18 +8,19 @@
     <h1>Book unique homes and experiences.</h1>
 
 
-
     <%= form_tag flats_path, method: "get", :class => 'comment_form' do %>
       <%= label_tag(:q, "WHERE") %>
       <%= text_field_tag :q, params[:q] %>
-      <!-- <div class="date_search_form">
+      <div class="check-from">
         <%= label_tag(:q, "CHECK IN:") %>
-        <%= date_field(:booking, :start_date) %>
         <%= label_tag(:q, "CHECK OUT:") %>
-        <%= date_field(:booking, :end_date) %>
-      </div> -->
+      </div>
+      <div class="date_search_form">
+        <%= date_field_tag :start_date, params[:start_date] %>
+        <%= date_field_tag :end_date, params[:end_date] %>
+      </div>
       <%= label_tag(:q, "GUESTS") %>
-      <%= number_field_tag :guest, params[:guest], in: 1..20, step: 1 %>
+      <%= number_field_tag :guest, params[:guest], in: 1..20, step: 1, :value => 1 %>
       <%= submit_tag("Search") %>
     <% end %>
 
@@ -36,7 +37,7 @@
       <a href="#"><i class="fab fa-linkedin"></i></a>
     </div>
     <div class="footer-pages">
-      <%= link_to("About", about_path, class: 'about-button') %>
-      <%= link_to("Contact", contact_path, class: 'contact-button') %>
+      <%= link_to("About", about_path, class: 'a-c-button') %>
+      <%= link_to("Contact", contact_path, class: 'a-c-button') %>
     </div>
   </div>
