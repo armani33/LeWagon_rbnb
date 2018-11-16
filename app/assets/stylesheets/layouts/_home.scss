@@ -12,18 +12,23 @@
   background-repeat: no-repeat;
 }
 .flex-container h2{
-  margin-top: 60px;
+  margin-bottom: 37px;
+  color: white;
   text-align: center;
-  color: black;
   font-family: 'Nunito', sans-serif;
   font-size: 23px;
 }
-
 .first-container{
   display:flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   justify-content: space-between;
-  margin-top: 30px;
+  background: linear-gradient(rgba(10, 10, 10, 0.6), rgba(10, 10, 10, 0.6)), url('https://www.archinfo.sk/image-handler/40218/3950943/gallery/box_58458/orig_1/COMPASS_Dum_Jarovce_04.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 35px;
-
+  background-color: lightgrey;
+  margin-bottom: 80px;
+}
+.flex-map-search{
+  display:flex;
 }
