@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2018_11_15_223006) do
     t.bigint "flat_id"
     t.date "start_date"
     t.date "end_date"
-    t.boolean "accepted"
+    t.boolean "aNice flat in little italy and its creasyccepted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["flat_id"], name: "index_bookings_on_flat_id"
