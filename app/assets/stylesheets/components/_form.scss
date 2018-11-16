@@ -5,7 +5,7 @@
   padding: 50px;
   display: flex;
   flex-direction: column;
-  background-color: white;
+  background-color: #F6F6F6;
   border-radius: 15px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.6);
   justify-content:center;
@@ -28,7 +28,9 @@ h1 {
   justify-content: space-between;
   width: 260px;
 }
-input{
+input {
+  margin: auto !important;
+  text-align: left;
   border: 1px solid grey;
   border-radius: 5px;
   height: 30px;
