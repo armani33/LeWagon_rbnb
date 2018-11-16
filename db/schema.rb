@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 2018_11_15_223006) do
     t.datetime "updated_at", null: false
     t.string "category"
     t.text "description"
+    t.string "photo"
     t.float "latitude"
     t.float "longitude"
-    t.string "photo"
     t.index ["user_id"], name: "index_flats_on_user_id"
   end
 

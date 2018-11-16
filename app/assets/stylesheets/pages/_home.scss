@@ -1,17 +1,14 @@
 // Specific CSS for your home-page
-h1 {
-  font-family: 'Nunito', sans-serif;
-  font-weight: bold;
-  font-size: 70px;
-}
-
 .home-container{
   position: relative;
   height: 100vh;
-  background-image: url("https://upload.wikimedia.org/wikipedia/commons/e/e1/Chestnut_Street_Salem.jpg");
+  background-color: red;
+  // background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/1-london-england-skyline-panoramic-michael-tompsett.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+
 .logo{
   position: absolute;
   top: 40px;
@@ -60,4 +57,9 @@ h1 {
 }
 input[type="submit"]{
   width:100px;
+}
+h1 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  font-size: 70px;
 }
