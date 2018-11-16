@@ -1,12 +1,15 @@
-<% @flat.bookings.each do |booking| %>
-<p><%= booking.user.first_name %> wants to book <%= @flat.description %></p>
-<p>from <%= booking.start_date %> to <%= booking.end_date %></p>
-<p>Accepted: <%= booking.accepted %></p>
-  <%= simple_form_for(booking) do |f| %>
-    <%= f.error_notification %>
-    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-      <%= f.input :accepted %>
-      <%= f.button :submit %>
-  <p>Discuss the details here: <%= booking.user.email %></p>
+<div class="container">
+  <% @flat.bookings.each do |booking| %>
+  <div class="card">
+    <p><%= booking.user.first_name %> wants to book <%= @flat.description %></p>
+    <p>from <%= booking.start_date %> to <%= booking.end_date %></p>
+    <%= simple_form_for(booking) do |f| %>
+      <%= f.error_notification %>
+      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+        <%= f.input :accepted%>
+        <%= f.button :submit %>
+    <p>Discuss the details here: <%= booking.user.email %></p>
+  </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>
