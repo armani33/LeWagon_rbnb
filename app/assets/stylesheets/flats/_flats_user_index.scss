@@ -1,0 +1,25 @@
+* {
+  text-align: center;
+  list-style-type: none;
+  font-size: 16px;
+}
+
+.card {
+  width: 400px;
+}
+
+img {
+  text-align: center;
+}
+
+.container-fluid {
+  background-color: #F6F6F6;
+  a {
+    color: teal;
+    text-decoration: none;
+  }
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
