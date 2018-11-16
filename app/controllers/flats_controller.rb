@@ -49,6 +49,7 @@ class FlatsController < ApplicationController
 
   def show
     @flat = Flat.find(params[:id])
+    @review = Review.new
     @flats = []
     @flats << @flat
     @markers = @flats.map do |flat|

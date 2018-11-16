@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'users/:user_id/flats/:flat_id/bookings', to: 'flats#owner_flat_bookings', as: 'owner_flat_bookings'
   resources :flats do
     resources :bookings, only: [:new, :create, :destroy]
+    resources :reviews, only: :create
   end
   resources :bookings, only: [:index, :update, :destroy]
 end
