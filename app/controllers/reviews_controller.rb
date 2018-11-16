@@ -4,9 +4,15 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.flat = @flat
     if @review.save
-      redirect_to flat_path(@flat)
+      respond_to do |format|
+        format.html { redirect_to flat_path(@flat) }
+        format.js  # <-- will render `app/views/reviews/create.js.erb`
+      end
     else
-      render 'flats/show'
+      respond_to do |format|
+        format.html { render 'flats/show' }
+        format.js  # <-- idem
+      end
     end
   end
 

@@ -37,11 +37,12 @@ class Flat < ApplicationRecord
 
 
   def average_rating
-    if number_of_review == 0
-      return "No reviews yet"
-    else
-      return reviews.pluck(:rating).sum / reviews.length.to_i
-    end
+    # if number_of_review == 0
+    #   return "No reviews yet"
+    # else
+    #   return reviews.pluck(:rating).sum / reviews.length.to_i
+    # end
+    return "0"
   end
 
   def number_of_review

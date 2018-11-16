@@ -1,0 +1,21 @@
+function renderForm(newFormHTML) {
+  var form = document.getElementById("new_review");
+
+  form.innerHTML = newFormHTML;
+}
+
+function injectReview(newReviewHTML) {
+  // Selecting the div where to inject it
+  var reviews = document.getElementById('reviews-content');
+
+  // Inject new content
+  reviews.insertAdjacentHTML('beforeend', newReviewHTML);
+}
+<% if @review.valid? %>
+  // NO ERRORS
+  injectReview('<%= j(render("reviews/show", { review: @review })) %>');
+  renderForm('<%= j(render("reviews/form", { flat: @flat, review: Review.new })) %>');
+<% else %>
+  // SOME ERRORS
+  renderForm('<%= j(render("reviews/form", { flat: @flat, review: @review })) %>');
+<% end %>

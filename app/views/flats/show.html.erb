@@ -18,20 +18,20 @@
     <p><%= @flat.guest_capacity %> Guests</p>
   </div>
   <div class="review">
-    <p>Average Rating: <%= @flat.average_rating %></p>
-    <p> <%= pluralize @restaurant.reviews.size, "review" %></p>
+    <!-- <p>Average Rating: <%= @flat.average_rating %></p> -->
+    <p> <%= pluralize @flat.reviews.size, "review" %></p>
     <!-- need to link to 'flats/:id/reviews' page -->
     <div id="reviews-content">
-      <% if @restaurant.reviews.blank? %>
-        Be the first to leave a review for <%= @restaurant.name %>
+      <% if @flat.reviews.blank? %>
+        <h2>Leave a review for <%= @flat.address %></h2>
       <% else %>
-        <% @restaurant.reviews.each do |review| %>
+        <% @flat.reviews.each do |review| %>
           <%= render 'reviews/show', review: review %>
         <% end %>
       <% end %>
     </div>
   </div>
-  <%= render 'reviews/form', restaurant: @restaurant, review: @review %>
+  <%= render 'reviews/form', flat: @flat, review: @review %>
   <div class="calendar">
     <%= month_calendar do |date| %>
       <%= date %>
