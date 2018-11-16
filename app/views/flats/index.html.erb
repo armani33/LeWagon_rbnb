@@ -1,29 +1,31 @@
 <div class="flex-container">
-  <h2>Adventures around the globe await!</h2>
   <div class="first-container">
-    <div class="map">
+    <h2>Adventures around the globe await!</h2>
+    <div class="flex-map-search">
+      <div class="map">
 
-      <%= render 'shared/map' %>
-    </div>
+        <%= render 'shared/map' %>
+      </div>
 
 
-    <div class="flex_search_form" style="margin-top: 0px;">
-      <h1>Want to rent a place? Book now!</h1>
-      <%= form_tag flats_path, method: "get", :class => 'comment_form' do %>
-        <%= label_tag(:q, "WHERE") %>
-        <%= text_field_tag :q, params[:q] %>
-        <div class="check-from">
-          <%= label_tag(:q, "CHECK IN:") %>
-          <%= label_tag(:q, "CHECK OUT:") %>
-        </div>
-        <div class="date_search_form">
-          <%= date_field_tag :start_date, params[:start_date] %>
-          <%= date_field_tag :end_date, params[:end_date] %>
-        </div>
-        <%= label_tag(:q, "GUESTS") %>
-        <%= number_field_tag :guest, params[:guest], in: 1..20, step: 1, :value => 1 %>
-        <%= submit_tag("Search") %>
-      <% end %>
+      <div class="flex_search_form" style="margin-top: 0px;">
+        <h1>Want to rent a place? Book now!</h1>
+        <%= form_tag flats_path, method: "get", :class => 'comment_form' do %>
+          <%= label_tag(:q, "WHERE") %>
+          <%= text_field_tag :q, params[:q] %>
+          <div class="check-from">
+            <%= label_tag(:q, "CHECK IN:") %>
+            <%= label_tag(:q, "CHECK OUT:") %>
+          </div>
+          <div class="date_search_form">
+            <%= date_field_tag :start_date, params[:start_date] %>
+            <%= date_field_tag :end_date, params[:end_date] %>
+          </div>
+          <%= label_tag(:q, "GUESTS") %>
+          <%= number_field_tag :guest, params[:guest], in: 1..20, step: 1, :value => 1 %>
+          <%= submit_tag("Search") %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="second-container">
@@ -34,7 +36,8 @@
             <div class="card-index">
               <%= link_to flat_path(flat) do %>
                 <div class="card-body-index">
-                  <%= cl_image_tag flat.photo, height: 300, width: 400, crop: :fill %>
+                  <%= cl_image_tag flat.photo, :width => 225, :height => 125,
+                 :crop => :thumb, :gravity => :face, :radius => 5%>
                 </div>
                 <div class="card-footer-index">
                   <h1><%= flat.description %></h1>
