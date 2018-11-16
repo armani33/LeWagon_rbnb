@@ -1,18 +1,17 @@
 // Specific CSS for your home-page
+@import "components/form";
+
 .home-container{
   position: relative;
   height: 100vh;
-  background-color: red;
-  // background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/1-london-england-skyline-panoramic-michael-tompsett.jpg");
+  background-image: url("https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/1-london-england-skyline-panoramic-michael-tompsett.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
-
-
 .logo{
   position: absolute;
-  top: 40px;
-  left: 40px;
+  top: 25px;
+  left: 30px;
   width: 50px;
 }
 .sign-up-button{
@@ -38,28 +37,4 @@
   padding: 5px;
   border-radius: 5px;
   text-decoration: none;
-}
-.flex_search_form{
-  width: 705px;
-  margin-top: 200px;
-  margin-left: 100px;
-  padding: 50px;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.6)
-}
-.comment_form{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-input[type="submit"]{
-  width:100px;
-}
-h1 {
-  font-family: 'Nunito', sans-serif;
-  font-weight: bold;
-  font-size: 70px;
 }

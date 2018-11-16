@@ -11,17 +11,18 @@
       <%= link_to "Host", new_flat_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Trips", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
-      <!-- Profile picture with dropdown list -->
-      <div class="navbar-wagon-item">
-        <div class="dropdown">
-            <img src="<%= cl_image_path current_user.photo %>" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-
-          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li><%= link_to("Profile", dashboard_path) %></li>
-            <li><%= link_to("Log out", destroy_user_session_path, method: :delete) %></li>
-          </ul>
-
-        </div>
+    <!-- Profile picture with dropdown list -->
+    <div class="navbar-wagon-item">
+      <div class="dropdown">
+        <% if current_user.nil? || current_user.photo.nil? %>
+          <img src="lionkingflat_orange" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <% else %>
+          <img src="<%= image_path(current_user.photo) %>" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+        <% end %>
+        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to("Profile", dashboard_path) %></li>
+          <li><%= link_to("Log out", destroy_user_session_path, method: :delete) %></li>
+        </ul>
       </div>
     <% else %>
       <p>user not logged in lol</p>
