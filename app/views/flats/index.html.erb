@@ -1,59 +1,52 @@
-<div class="map">
-  <h4>Adventures around the globe await!</h4>
-  <%= render 'shared/map' %>
-</div>
-<!-- <div
-id="map"
-style="width: 600px;
-height: 400px;"
-data-markers="<%= @markers.to_json %>">
-</div> -->
+<div class="flex-container">
+  <h2>Adventures around the globe await!</h2>
+  <div class="first-container">
+    <div class="map">
 
-<div class="banner-flats-index">
-  <div class="row">
-    <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 ">
-      <div class="search-form text-align-left">
+      <%= render 'shared/map' %>
+    </div>
 
-        <%= form_tag flats_path, method: "get", :class => 'comment_form' do %>
-          <br>
-          <h1>Want to rent a place? Book now!</h1>
-          <br>
-          <%= label_tag(:q, "WHERE") %>
-          <%= text_field_tag :q, params[:q] %>
-          <div class="date_search_form">
-            <%= label_tag(:q, "CHECK IN:") %>
-            <%= date_field_tag :start_date, params[:start_date] %>
-            <%= label_tag(:q, "CHECK OUT:") %>
-            <%= date_field_tag :end_date, params[:end_date] %>
-          </div>
-          <%= label_tag(:q, "GUESTS") %>
-          <%= number_field_tag :guest, params[:guest], in: 1..20, step: 1 %>
-          <%= submit_tag("Search") %>
-        <% end %>
 
-      </div>
+    <div class="flex_search_form" style="margin-top: 0px;">
+      <h1>Want to rent a place? Book now!</h1>
+      <%= form_tag flats_path, method: "get", :class => 'comment_form' do %>
+        <%= label_tag(:q, "WHERE") %>
+        <%= text_field_tag :q, params[:q] %>
+        <div class="check-from">
+          <%= label_tag(:q, "CHECK IN:") %>
+          <%= label_tag(:q, "CHECK OUT:") %>
+        </div>
+        <div class="date_search_form">
+          <%= date_field_tag :start_date, params[:start_date] %>
+          <%= date_field_tag :end_date, params[:end_date] %>
+        </div>
+        <%= label_tag(:q, "GUESTS") %>
+        <%= number_field_tag :guest, params[:guest], in: 1..20, step: 1, :value => 1 %>
+        <%= submit_tag("Search") %>
+      <% end %>
     </div>
   </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <% @flats.each do |flat| %>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        <div class="card-index">
-          <%= link_to flat_path(flat) do %>
-            <div class="card-body-index">
-              <%= cl_image_tag flat.photo, height: 300, width: 400, crop: :fill %>
+  <div class="second-container">
+    <div class="container">
+      <div class="row">
+        <% @flats.each do |flat| %>
+          <div class="col-xs-12 col-sm-6 col-md-3">
+            <div class="card-index">
+              <%= link_to flat_path(flat) do %>
+                <div class="card-body-index">
+                  <%= cl_image_tag flat.photo, height: 300, width: 400, crop: :fill %>
+                </div>
+                <div class="card-footer-index">
+                  <h1><%= flat.description %></h1>
+                  <p><strong>Price: </strong><%= flat.price %>CAD</p>
+                  <p><strong>Ratings :</strong> <%= flat.average_rating%></p>
+                  <p><strong>Reviews:</strong> <%= flat.number_of_review%></p>
+                </div>
+              <% end %>
             </div>
-            <div class="card-footer-index">
-              <h1><%= flat.description %></h1>
-              <p><strong>Price: </strong><%= flat.price %>CAD</p>
-              <p><strong>Ratings :</strong> <%= flat.average_rating%></p>
-              <p><strong>Reviews:</strong> <%= flat.number_of_review%></p>
-            </div>
-          <% end %>
-        </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+    </div>
   </div>
 </div>
