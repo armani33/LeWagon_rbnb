@@ -1,7 +1,7 @@
 <div class= "profil-contrainer">
   <div class="row">
     <div class="col-lg-3 col-md-4 hide-sm ">
-      <%# image_tag(@user.avatar, alt: "profile avatar", class: "avatar-large") %>
+      <%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
     </div>
     <div class="col-lg-9 col-md-8 col-sm-12">
       <h2> Hello, my name is <%=@user.first_name%>!</h2>
