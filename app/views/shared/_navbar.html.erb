@@ -15,7 +15,7 @@
     <div class="navbar-wagon-item">
       <div class="dropdown">
         <% if current_user.nil? || current_user.photo.nil? %>
-          <img src="lionkingflat_orange" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+          <img src="" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <% else %>
           <img src="<%= image_path(current_user.photo) %>" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
         <% end %>
