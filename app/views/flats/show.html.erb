@@ -28,6 +28,10 @@
     <% end %>
   </div>
   <div class="book">
-    <%= link_to "Book now!", new_flat_booking_path(@flat), class: "btn btn-success btn-lg" %>
+    <% if @flat.user == current_user %>
+      <p> Check messages for booking requests... </p>
+    <% else %>
+      <%= link_to "Book now!", new_flat_booking_path(@flat), class: "btn btn-success btn-lg" %>
+    <% end %>
   </div>
 </div>
