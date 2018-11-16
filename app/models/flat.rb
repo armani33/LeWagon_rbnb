@@ -1,8 +1,8 @@
 require 'date'
 class Flat < ApplicationRecord
   include PgSearch
+  has_many :reviews, dependent: :destroy
   has_many :bookings, dependent: :destroy
-  has_many :reviews
   has_many :pictures
   has_many :users, through: :bookings # users as guest
   belongs_to :user # user as host
@@ -37,11 +37,12 @@ class Flat < ApplicationRecord
 
 
   def average_rating
-    if number_of_review == 0
-      return "No reviews yet"
-    else
-      return reviews.pluck(:rating).sum / reviews.length.to_i
-    end
+    # if number_of_review == 0
+    #   return "No reviews yet"
+    # else
+    #   return reviews.pluck(:rating).sum / reviews.length.to_i
+    # end
+    return "0"
   end
 
   def number_of_review
