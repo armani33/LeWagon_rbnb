@@ -39,8 +39,6 @@ ActiveRecord::Schema.define(version: 2018_11_15_210430) do
     t.datetime "updated_at", null: false
     t.string "category"
     t.text "description"
-    t.float "latitude"
-    t.float "longitude"
     t.string "photo"
     t.float "latitude"
     t.float "longitude"
