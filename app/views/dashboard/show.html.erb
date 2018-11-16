@@ -1,28 +1,26 @@
-<div class= "profil-contrainer">
+<div class= "profil-container">
   <div class="row">
     <div class="col-lg-3 col-md-4 hide-sm ">
-      <%= cl_image_tag @user.photo, height: 300, width: 400, crop: :fill %>
+      <%= cl_image_tag @user.photo, height: 200, width: 300, crop: :fill %>
     </div>
-    <div class="col-lg-9 col-md-8 col-sm-12">
-      <h2> Hello, my name is <%=@user.first_name%>!</h2>
-      <p><strong>Member since <%= @user.created_at %></strong></p>
-      <%= link_to 'Update profile', edit_user_registration_path(@user) %>
   </div>
-  </div>
+
   <div class="row">
     <div class="col-lg-3 col-md-4 hide-sm ">
-      <h3>User informations: </h3>
-    <p><strong>First name:</strong> <%=@user.first_name%></p>
-    <p><strong>Last name:</strong> <%=@user.last_name%></p>
-    <p><strong>Email:</strong> <%=@user.email%></p>
-  </div>
-  <div class="row">
+      <p><strong>First name:</strong> <%=@user.first_name%></p>
+      <p><strong>Last name:</strong> <%=@user.last_name%></p>
+      <p><strong>Email:</strong> <%=@user.email%></p>
+      <p><strong>Member since:</strong> <%= @user.created_at %></p>
+      <%= link_to 'Update profile', edit_user_registration_path(@user) %>
+    </div>
     <div class="col-lg-3 col-md-4 hide-sm">
-      <%= link_to "View bookings", bookings_path %>
-      <br>
-      <%= link_to "Want to rent your place? Add a flat!", new_flat_path(@user) %>
-      <br>
-      <%= link_to "Manage your flats", flats_user_index_path%>
+      <h2><%= link_to "View bookings", bookings_path %></h2>
+    </div>
+     <div class="col-lg-3 col-md-4 hide-sm">
+        <h2><%= link_to "Manage your homes", flats_user_index_path%></h2>
+    </div>
+    <div class="col-lg-3 col-md-4 hide-sm">
+        <h2><%= link_to "Add a home", new_flat_path(@user) %></h2>
     </div>
   </div>
   </div>
