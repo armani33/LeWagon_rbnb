@@ -1,8 +1,8 @@
 require 'date'
 class Flat < ApplicationRecord
   include PgSearch
-  has_many :bookings
   has_many :reviews, dependent: :destroy
+  has_many :bookings, dependent: :destroy
   has_many :pictures
   has_many :users, through: :bookings # users as guest
   belongs_to :user # user as host

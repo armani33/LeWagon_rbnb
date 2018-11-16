@@ -78,12 +78,19 @@ class FlatsController < ApplicationController
   end
 
   def edit
+    @flat = Flat.find(params[:id])
   end
 
   def update
+    @flat = Flat.find(params[:id])
+    @flat.update(flat_params)
+    redirect_to flats_user_index_path
   end
 
   def destroy
+    @flat = Flat.find(params[:id])
+    @flat.destroy
+    redirect_to flats_user_index_path
   end
 
   private
