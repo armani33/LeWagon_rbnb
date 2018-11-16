@@ -7,9 +7,9 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <%= link_to "Host", new_flat_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "Trips", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
+    <% if user_signed_in? %>
+      <%= link_to "Host", new_flat_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Trips", bookings_path, class: "navbar-wagon-item navbar-wagon-link" %>
 
     <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
@@ -24,6 +24,10 @@
           <li><%= link_to("Log out", destroy_user_session_path, method: :delete) %></li>
         </ul>
       </div>
-    </div>
+    <% else %>
+      <p>user not logged in lol</p>
+    <% end %>
   </div>
 </div>
+
+
