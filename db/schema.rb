@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2018_11_15_210430) do
     t.string "category"
     t.text "description"
     t.string "photo"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_flats_on_user_id"
   end
 
