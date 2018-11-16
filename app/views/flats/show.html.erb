@@ -3,7 +3,7 @@
   <div class="gallery">
     <% @flat.pictures.each do |picture_object| %>
       <%= image_tag (picture_object.picture)%>
-    <% end %>
+    <% end %>validates validates :content, length: { minimum: 20 }validates :content, length: { minimum: 20 }:content, length: { minimum: 20 }
   </div>
   <div class="information">
     <% flash.each do |key, value| %>
@@ -19,8 +19,17 @@
   </div>
   <div class="review">
     <p>Average Rating: <%= @flat.average_rating %></p>
-    <p>See all reviews... NEED ROUTE/CONTROLLER/VIEW FOR 'flats/:id/reviews'</p>
+    <p> <%= pluralize @restaurant.reviews.size, "review" %></p>
     <!-- need to link to 'flats/:id/reviews' page -->
+    <div id="reviews-content">
+      <% if @restaurant.reviews.blank? %>
+        Be the first to leave a review for <%= @restaurant.name %>
+      <% else %>
+        <% @restaurant.reviews.each do |review| %>
+          <%= render 'reviews/show', review: review %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
   <div class="calendar">
     <%= month_calendar do |date| %>
